@@ -1,0 +1,23 @@
+<div class="container">
+<!-- <h3>Top Courses</h3> 
+<div class="grid grid-pad">
+  <a *ngFor="let course of courses" class="col-1-4"
+      routerLink="/detail/{{course.id}}">
+    <div class="module hero">
+      <h4>{{course.name}}</h4>
+    </div>
+  </a>
+</div>
+</div> -->
+<br>
+<div class="card-deck">
+  <div class="card" *ngFor="let course of courses" routerLink="/detail/{{course.id}}">
+    <img src={{course.image}} class="card-img-top" alt="xys">
+    <div class="card-body">
+      <h5 class="card-title">{{course.name}}</h5>
+      <!-- <p class="card-text">{{course.description}}</p> -->
+    </div>
+  </div>
+</div>
+</div>
+<!-- <app-hero-search></app-hero-search> -->

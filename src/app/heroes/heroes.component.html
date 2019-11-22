@@ -1,0 +1,60 @@
+<div class="container">
+  <br>
+<h2>Courses</h2>
+
+<div>
+  <br>
+  <span>
+  <label> Upload:
+      <input class="file-input" type="file" (change)=fileUpload($event)/>
+  </label>
+  <div *ngIf="loading">
+
+    <div class="spinner-border" ></div>
+    Loading
+
+  </div>
+    </span>
+</div>
+
+<br>
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Credits</th>
+      <th scope="col">No of Docs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hero of heroes" >
+      <a routerLink="/detail/{{hero.id}}">
+      <th scope="row">{{hero.id}}</th>
+      </a>
+      <td>{{hero.name}}</td>
+      <td>{{hero.credits}}</td>
+      <td>{{hero.documents.length}}</td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<div class="container">
+  <br>
+  <h2>Documents</h2>
+  <label class="search-bar"> <span>Search</span>
+  <input (input)=search(docName.value) value="  Enter file name" onfocus="this.value=''" #docName/>
+</label>
+<div style="overflow-y:scroll;height:300px;" (scroll)=loadData()>
+<ul class="list-group"  *ngFor="let doc of documents">
+  <li class="list-group-item"><a href="http://localhost:7000/return-files?file={{doc}}" target="_blank">{{doc}}</a></li>
+</ul>
+</div>
+<br>
+
+</div>
